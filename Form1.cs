@@ -46,6 +46,7 @@ namespace GitUzduotys
             InitializeComponent();
         }
 
+        // KINTAMIEJI
         const int n = 10;
 
         int position = -1;
@@ -95,6 +96,46 @@ namespace GitUzduotys
                 // Jeigu įvestis nėra skaičius
                 MessageBox.Show("Įvedimas turi būti skaičius!");
                 textBox1.Text = "";
+            }
+        }
+
+        // KINTAMIEJI
+        int secondNumber;
+        int stars = 1;
+        int space;
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            if (int.TryParse(textBox2.Text, out secondNumber))
+            {
+                // Jeigu įvestis yra sveikas skaičius
+                secondNumber = int.Parse(textBox2.Text);
+                space = secondNumber;
+
+                richTextBox1.Text = "";
+                textBox2.Text = "";
+
+                for (int i = 0; i < secondNumber; i++)
+                {
+                    for (int j = 0; j < space; j++)
+                    {
+                        richTextBox1.Text += " ";
+                    }
+                    for (int j = 0; j < stars; j++)
+                    {
+                        richTextBox1.Text += "* ";
+                    }
+                    richTextBox1.Text += "\n";
+                    stars++;
+                    space--;
+                }
+                stars = 1;
+            }
+            else
+            {
+                // Jeigu įvestis nėra sveikas skaičius
+                MessageBox.Show("Įvedimas turi būti sveikas skaičius!");
+                textBox2.Text = "";
             }
         }
     }
